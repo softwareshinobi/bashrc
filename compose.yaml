@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  alias-test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: alias-test
+    stdin_open: true
+    tty: true
