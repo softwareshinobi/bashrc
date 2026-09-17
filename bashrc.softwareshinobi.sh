@@ -1,6 +1,6 @@
 #!/bin/bash
 
-@export() {
+function export_repo() {
 
     local directory="."
     
