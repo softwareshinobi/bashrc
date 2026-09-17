@@ -9,6 +9,34 @@ cat << 'EOF' > "$TARGET_FILE"
 #!/bin/bash
 
 # Custom Functions
+
+function export_repo() {
+
+    local directory="."
+    local output_file="${1:-./repo-export.dat}"
+
+    echo "Exporting repository: ${directory}"
+    echo "Output file: ${output_file}"
+
+    # Start with an empty export file.
+    : > "${output_file}"
+
+    # Traverse the complete directory tree and concatenate every file.
+    find "${directory}" \
+        \( -type d \( -name ".git" -o -name ".recycle" -o -name ".idea" -o -name ".templater" \) -prune \) \
+        -o \( -type f -print0 \) |
+    while IFS= read -r -d '' file; do
+        echo "==================================================" >> "${output_file}"
+        echo "FILE: ${file}" >> "${output_file}"
+        echo "==================================================" >> "${output_file}"
+
+        cat "${file}" >> "${output_file}"
+
+        printf '\n\n' >> "${output_file}"
+    done
+
+    echo "Repository export complete."
+}
 stop() {
     docker stop $(docker ps -a -q)
 }
