@@ -13,3 +13,11 @@ Dockerfile  compose.yaml  install.sh
 root@urus:/tmp/bashrc# sudo bash install.sh 
 System-wide aliases installed to /etc/profile.d/softwareshinobi.bashrc.sh
 root@urus:/tmp/bashrc# 
+
+
+root@urus:/tmp/bashrc# ls
+Dockerfile  compose.yaml  install.sh
+root@urus:/tmp/bashrc# sudo bash install.sh 
+System-wide aliases installed to /etc/profile.d/softwareshinobi.bashrc.sh
+root@urus:/tmp/bashrc# source /etc/profile.d/softwareshinobi.bashrc.sh
+root@urus:/tmp/bashrc# r
